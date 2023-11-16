@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import React from 'react';
+import { SyntheticEvent } from 'react';
+
+function ButTon() {
+  const btnName: string = '点击我';
+  const btnFn = (name: string, e: SyntheticEvent) => {
+    e.stopPropagation();
+    console.log(btnName + name);
+  };
+  return (
+    <div className="btn" onClick={(e) => btnFn('lansiming', e)}>
+      {btnName}
+    </div>
+  );
+}
 
 function App() {
+  const handlerClick = (name: string) => {
+    console.log(name);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" onClick={() => handlerClick('lanlan')}>
+      1123123
+      <ButTon></ButTon>
     </div>
   );
 }
