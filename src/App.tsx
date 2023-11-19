@@ -1,27 +1,26 @@
 // import React from 'react';
-import { SyntheticEvent } from 'react';
+import { useState } from 'react';
 
-function ButTon() {
-  const btnName: string = '点击我';
-  const btnFn = (name: string, e: SyntheticEvent) => {
-    e.stopPropagation();
-    console.log(btnName + name);
-  };
+const Input = (props: any) => {
+  const changeVal = (e: string) => props.changeVal(e);
   return (
-    <div className="btn" onClick={(e) => btnFn('lansiming', e)}>
-      {btnName}
+    <div>
+      <input type="text" value={props.modelVal} onChange={(e) => changeVal(e.target.value)} />
     </div>
   );
+};
+
+function ButTon(props: any) {
+  return <div className="btn">{props.btnName || '请对输入框赋值'}</div>;
 }
 
 function App() {
-  const handlerClick = (name: string) => {
-    console.log(name);
-  };
+  const [inputVal, setInputVal] = useState('');
+  const handlerVal = (data: string) => setInputVal(data);
   return (
-    <div className="App" onClick={() => handlerClick('lanlan')}>
-      1123123
-      <ButTon></ButTon>
+    <div className="App">
+      <ButTon info={{ name: '123' }} btnName={inputVal}></ButTon>
+      <Input modelVal={inputVal} changeVal={handlerVal}></Input>
     </div>
   );
 }
