@@ -1,0 +1,23 @@
+.cellLi {
+  color: aqua;
+}
+
+.activeCell {
+  color: blue;
+}
+
+.calendarBox {
+}
+:where(.css-dev-only-do-not-override-nllxry).ant-picker-calendar
+  .ant-picker-cell-in-view.ant-picker-cell-selected
+  .ant-picker-cell-inner,
+:where(.css-dev-only-do-not-override-nllxry).ant-picker-calendar
+  .ant-picker-cell-in-view.ant-picker-cell-range-start
+  .ant-picker-cell-inner,
+:where(.css-dev-only-do-not-override-nllxry).ant-picker-calendar
+  .ant-picker-cell-in-view.ant-picker-cell-range-end
+  .ant-picker-cell-inner {
+  color: red;
+  background: unset;
+  user-selected: none;
+}
