@@ -6,7 +6,9 @@ import * as echarts from 'echarts';
 const Map: React.FC = () => {
   const option = {
     backgroundColor: '#404a59',
-
+    tooltip: {
+      show: true
+    },
     geo: {
       map: 'china',
       roam: true,
@@ -45,8 +47,8 @@ const Map: React.FC = () => {
       console.log(params, 'params');
       charts.dispatchAction({
         type: 'showTip',
-        geoIndex: params.dataIndex,
-        geoId: params.dataIndex
+        dataIndex: params.dataIndex,
+        seriesIndex: 0
       }) as any;
     });
   }, [option]);

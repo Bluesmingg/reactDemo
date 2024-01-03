@@ -1,12 +1,16 @@
 import React from 'react';
-import Animation from './components/animation';
-import Map from './components/chinaMap';
+// import Animation from './components/animation';
+// import Form from './components/form';
+// import Map from './components/chinaMap';
+import Stack from './components/stack';
 
 const App: React.FC = () => {
   return (
     <>
-      <Animation />
-      <Map />
+      {/* <Animation /> */}
+      {/* <Form /> */}
+      {/* <Map /> */}
+      <Stack />
     </>
   );
 };

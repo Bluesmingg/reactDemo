@@ -27,16 +27,16 @@ const Animation: React.FC = (props: any) => {
   //   const timerRef: any = useRef(null);
   const dataList = [123, 456, 789, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113];
   useEffect(() => {
-    let animationId: any = null;
-    let timer: any = setInterval(() => {
+    let animationId: number | null = null;
+    let timer: number | null = window.setInterval(() => {
       animationId = animation(5000, 0, domRef.current.scrollHeight - domRef.current.clientHeight, (val: number) => {
         domRef.current && (domRef.current.scrollTop = val);
       });
     }, 5000);
 
     return () => {
-      clearInterval(timer);
-      cancelAnimationFrame(animationId);
+      clearInterval(timer as number);
+      cancelAnimationFrame(animationId as number);
       timer = null;
     };
   }, []);
